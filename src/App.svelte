@@ -1,13 +1,16 @@
 <script>
 import { onMount } from 'svelte';
-import Page from './Page.svelte' ;
+ let VaultContract;
+ let account ;
+
+//import Page from './Page.svelte' ;
 //const fm = new Fortmatic('pk_test_7F64757BB0C010B6', 'kovan');
 //window.web3 = new Web3(fm.getProvider());
-let bLoading = true, account, abisData;
+let bLoading = true, abisData;
 
 onMount(
 		async () => {
-		  window.web3 = loadBlockchainData();
+		  window.web3 = await loadBlockchainData();
 		//  bLoading = false;
 		  loadSmartContract();
 		}
@@ -17,62 +20,68 @@ onMount(
 	 async function loadBlockchainData(){
 			const fm = new Fortmatic('pk_test_7F64757BB0C010B6', 'kovan');
 			return new Web3(fm.getProvider());
-	
+	 }
 
-await fetch('/abis/abis.json').then((response) => {
+ 	async function loadSmartContract(){
+	const web3 = window.web3 ;
+	const accounts = await web3.eth.getAccounts();
+	account= accounts[0];
+
+	await fetch('/abis/abis.json').then((response) => {
     return response.json();
   }).then((myJson) => {
 	abisData = myJson;
   });
 
   const networkId = await web3.eth.net.getId();
-  const netData = pVaultData.networks[networkId];
+  const netData = abisData.networks[networkId];
 
 
   if(netData)
      { 
-      const abi = pVaultData.abi;
+      const abi = abisData.abi;
       const address = netData.address
-     VaultContract = await new web3.eth.Contract(abi, address); 
-     //VaultContract.then(()=>{}, ()=>{console.debug("yo")});
-    //console.debug(VaultContract);
-	/*
-	await VaultContract.methods.getVaultInfo().call({
-      from : $account
-   }).then(async (data)=> {
-      bLoading = false;
-			 if(!+data.vc){
-          oVaultInfo.sMessage = "No Vault created yet";
-          console.log("No Vault created yet")
-         return;
-        }
-        oVaultInfo.vno = data.vc;
-        oVaultInfo.len = +data.len;
-        window.len = data.len;
-        window.vno = data.vc;
-   },async (err)=> {
-		console.log(err);
-		sMessage = "No Vault created yet";
+   VaultContract = await new web3.eth.Contract(abi, address) ; //
+   bLoading = false;
+   loadTableData();
+	 }
+  }
+  let TableData = [];
+  async function loadTableData(){
+
+	TableData = [];
+if(VaultContract && account)
+{
+
+	let awbs = [1001,1002, 1003];
+
+	awbs.forEach(function(ele){
+		VaultContract.methods.getAssignment(ele).call({
+      from : account
+   }).then( (data) => {
+	data.awb = ele;
+    TableData = [...TableData, data];
    });
-   */
+	})
 
-   
+}
+  }
 
-   
-    }
+  async function ReceiveGoods(oEvent){
+	
+	let awb = +this.name;
 
+	
+	VaultContract.methods.receiveGoods(awb).call({
+      from : account
+   }).then( (data) => {
+	loadTableData();
+   }, (error) => {
+	   console.debug(error);
+   });
 
   }
 
- async function loadSmartContract(){
-	const web3 = window.web3 ;
-	const accounts = await web3.eth.getAccounts();
-	account = accounts[0];
-
-
-
-
-  }
 
 </script>
 
@@ -83,7 +92,53 @@ await fetch('/abis/abis.json').then((response) => {
 	  </div>
 	<h6>Initalizing Web App....</h6>
 	{:else}
-	  <Page />
+	<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+		<a class="navbar-brand" href="#">
+		  <img src="/icon.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+		 CHAINrecord
+		</a>	  
+	  </nav>
+	<table class="table">
+
+
+		<thead class="thead-dark">
+		  <tr>
+			<th scope="col">#</th>
+			<th scope="col">Origin</th>
+			<th scope="col">Destnation</th>
+			<th scope="col">Status</th>
+			<th scope="col">Message</th>
+			<th scope="col">Action</th>
+		  </tr>
+		</thead>
+		<tbody>
+	  
+		{#if TableData.length }
+		
+		{#each TableData as ele, i}
+		  <tr>
+			<th scope="row">{ele.awb}</th>
+			 <td>{ele[0]}</td>
+			<td>{ele[1]}</td>
+			<td>{ele[4]}</td>
+			<td>{ele[5]}</td>
+			<td>
+				{#if ele[4] == 'Ready for Retrival' }
+				<button type="button" name="{ele.awb}"  on:click= {ReceiveGoods} class="btn btn-primary margin-half " >
+				Receive Goods
+			  </button>
+			  {/if}
+			</td>
+		  </tr>
+		{/each}
+		
+		 {:else}
+	   <div class="spinner-border text-dark" role="status">
+		<span class="sr-only">Loading...</span>
+	  </div>
+		 {/if} 
+		</tbody>
+	  </table>
 	{/if}
 </main>
 
