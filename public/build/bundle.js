@@ -440,31 +440,31 @@ var app = (function () {
     			attr_dev(img, "height", "30");
     			attr_dev(img, "class", "d-inline-block align-top");
     			attr_dev(img, "alt", "");
-    			add_location(img, file, 96, 4, 2000);
+    			add_location(img, file, 96, 4, 2006);
     			attr_dev(a, "class", "navbar-brand");
     			attr_dev(a, "href", "#");
-    			add_location(a, file, 95, 2, 1962);
+    			add_location(a, file, 95, 2, 1968);
     			attr_dev(nav, "class", "navbar navbar-light");
     			set_style(nav, "background-color", "#e3f2fd");
-    			add_location(nav, file, 94, 1, 1891);
+    			add_location(nav, file, 94, 1, 1897);
     			attr_dev(th0, "scope", "col");
-    			add_location(th0, file, 105, 3, 2186);
+    			add_location(th0, file, 105, 3, 2192);
     			attr_dev(th1, "scope", "col");
-    			add_location(th1, file, 106, 3, 2212);
+    			add_location(th1, file, 106, 3, 2218);
     			attr_dev(th2, "scope", "col");
-    			add_location(th2, file, 107, 3, 2243);
+    			add_location(th2, file, 107, 3, 2249);
     			attr_dev(th3, "scope", "col");
-    			add_location(th3, file, 108, 3, 2278);
+    			add_location(th3, file, 108, 3, 2284);
     			attr_dev(th4, "scope", "col");
-    			add_location(th4, file, 109, 3, 2309);
+    			add_location(th4, file, 109, 3, 2315);
     			attr_dev(th5, "scope", "col");
-    			add_location(th5, file, 110, 3, 2341);
-    			add_location(tr, file, 104, 4, 2178);
+    			add_location(th5, file, 110, 3, 2347);
+    			add_location(tr, file, 104, 4, 2184);
     			attr_dev(thead, "class", "thead-dark");
-    			add_location(thead, file, 103, 2, 2147);
-    			add_location(tbody, file, 113, 2, 2392);
+    			add_location(thead, file, 103, 2, 2153);
+    			add_location(tbody, file, 113, 2, 2398);
     			attr_dev(table, "class", "table");
-    			add_location(table, file, 100, 1, 2121);
+    			add_location(table, file, 100, 1, 2127);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, nav, anchor);
@@ -538,13 +538,13 @@ var app = (function () {
     			h6 = element("h6");
     			h6.textContent = "Initalizing Web App....";
     			attr_dev(span, "class", "sr-only");
-    			add_location(span, file, 90, 2, 1797);
+    			add_location(span, file, 90, 2, 1803);
     			attr_dev(div, "class", "spinner-grow");
     			set_style(div, "width", "3rem");
     			set_style(div, "height", "3rem");
     			attr_dev(div, "role", "status");
-    			add_location(div, file, 89, 1, 1719);
-    			add_location(h6, file, 92, 1, 1848);
+    			add_location(div, file, 89, 1, 1725);
+    			add_location(h6, file, 92, 1, 1854);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -582,10 +582,10 @@ var app = (function () {
     			span = element("span");
     			span.textContent = "Loading...";
     			attr_dev(span, "class", "sr-only");
-    			add_location(span, file, 136, 2, 2895);
+    			add_location(span, file, 136, 2, 2901);
     			attr_dev(div, "class", "spinner-border text-dark");
     			attr_dev(div, "role", "status");
-    			add_location(div, file, 135, 4, 2840);
+    			add_location(div, file, 135, 4, 2846);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -691,7 +691,7 @@ var app = (function () {
     			attr_dev(button, "type", "button");
     			attr_dev(button, "name", button_name_value = /*ele*/ ctx[8].awb);
     			attr_dev(button, "class", "btn btn-primary margin-half ");
-    			add_location(button, file, 126, 4, 2645);
+    			add_location(button, file, 126, 4, 2651);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, button, anchor);
@@ -774,13 +774,13 @@ var app = (function () {
     			if (if_block) if_block.c();
     			t10 = space();
     			attr_dev(th, "scope", "row");
-    			add_location(th, file, 119, 3, 2475);
-    			add_location(td0, file, 120, 4, 2510);
-    			add_location(td1, file, 121, 3, 2531);
-    			add_location(td2, file, 122, 3, 2552);
-    			add_location(td3, file, 123, 3, 2573);
-    			add_location(td4, file, 124, 3, 2594);
-    			add_location(tr, file, 118, 4, 2467);
+    			add_location(th, file, 119, 3, 2481);
+    			add_location(td0, file, 120, 4, 2516);
+    			add_location(td1, file, 121, 3, 2537);
+    			add_location(td2, file, 122, 3, 2558);
+    			add_location(td3, file, 123, 3, 2579);
+    			add_location(td4, file, 124, 3, 2600);
+    			add_location(tr, file, 118, 4, 2473);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tr, anchor);
@@ -856,7 +856,7 @@ var app = (function () {
     			main = element("main");
     			if_block.c();
     			attr_dev(main, "class", "svelte-1tky8bj");
-    			add_location(main, file, 87, 0, 1695);
+    			add_location(main, file, 87, 0, 1701);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -949,7 +949,7 @@ var app = (function () {
     		$$invalidate(1, TableData = []);
 
     		if (VaultContract && account) {
-    			let awbs = [1001, 1002, 1003];
+    			let awbs = [1001, 1002, 1003, 1004];
 
     			awbs.forEach(function (ele) {
     				VaultContract.methods.getAssignment(ele).call({ from: account }).then(data => {

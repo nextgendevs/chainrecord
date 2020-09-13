@@ -53,7 +53,7 @@ onMount(
 if(VaultContract && account)
 {
 
-	let awbs = [1001,1002, 1003];
+	let awbs = [1001,1002, 1003, 1004];
 
 	awbs.forEach(function(ele){
 		VaultContract.methods.getAssignment(ele).call({
