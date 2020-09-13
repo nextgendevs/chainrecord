@@ -1,0 +1,135 @@
+{
+	"contractName": "chainrecord",
+	"abi":   
+	[
+		{
+			"inputs": [
+				{
+					"internalType": "string",
+					"name": "o",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "d",
+					"type": "string"
+				},
+				{
+					"internalType": "address",
+					"name": "c",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "sh",
+					"type": "address"
+				},
+				{
+					"internalType": "string",
+					"name": "st",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "m",
+					"type": "string"
+				}
+			],
+			"name": "createAssignment",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "awb",
+					"type": "uint256"
+				}
+			],
+			"name": "receiveGoods",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "awb",
+					"type": "uint256"
+				}
+			],
+			"name": "getAssignment",
+			"outputs": [
+				{
+					"internalType": "string",
+					"name": "",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "",
+					"type": "string"
+				},
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				},
+				{
+					"internalType": "string",
+					"name": "",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "",
+					"type": "string"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		}
+	]
+	
+	
+	,
+	"networks": {
+	  "42": {
+		"events": {},
+  
+		"links": {},
+		"address": "0x1f1a8d5cda100038ea0f02470559675ecba1bffd",
+		"transactionHash": "0x2583f2429cfecdd29f28cb441942c73a7020b4ae91c36e98acbc0e5bff08e184"
+	  }
+  
+	},
+	"schemaVersion": "3.0.2",
+	"updatedAt": "2020-02-22T12:21:25.379Z",
+	"devdoc": {
+	  "methods": {}
+	},
+	"userdoc": {
+	  "methods": {}
+	}
+  }
+  
